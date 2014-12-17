@@ -70,7 +70,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(556, 396);
+            this.panelMain.Size = new System.Drawing.Size(556, 397);
             this.panelMain.TabIndex = 3;
             // 
             // groupBox1
@@ -212,20 +212,20 @@
             this.txtBoxIP.Name = "txtBoxIP";
             this.txtBoxIP.Size = new System.Drawing.Size(125, 20);
             this.txtBoxIP.TabIndex = 1;
-            this.txtBoxIP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxIP_KeyDown);
+            
             this.txtBoxIP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxIP_KeyPress);
             // 
             // txtBoxPrint
             // 
             this.txtBoxPrint.BackColor = System.Drawing.Color.White;
             this.txtBoxPrint.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtBoxPrint.Location = new System.Drawing.Point(236, 83);
+            this.txtBoxPrint.Location = new System.Drawing.Point(234, 61);
             this.txtBoxPrint.Multiline = true;
             this.txtBoxPrint.Name = "txtBoxPrint";
             this.txtBoxPrint.ReadOnly = true;
             this.txtBoxPrint.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtBoxPrint.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBoxPrint.Size = new System.Drawing.Size(316, 296);
+            this.txtBoxPrint.Size = new System.Drawing.Size(316, 272);
             this.txtBoxPrint.TabIndex = 8;
             // 
             // menuStrip1
@@ -327,7 +327,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(556, 396);
+            this.ClientSize = new System.Drawing.Size(556, 397);
             this.Controls.Add(this.panelMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
