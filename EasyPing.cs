@@ -106,12 +106,42 @@ namespace Internet_Tools
 
         private void roundButton1_Click(object sender, EventArgs e)
         {
+            initPingState();
+
+            startPing();
+        }
+
+        private void roundButton2_Click(object sender, EventArgs e)
+        {
+            check = false;
+            ping.setCheck(check);
+        }
+
+
+        private void clearTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtBoxPrint.Text = "";
+        }
+
+        private void txtBoxIP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                initPingState();
+                startPing();
+
+               
+            }
+        }
+        private void initPingState() {
+
             ping.resetPacketsLost();
             ping.resetPacketRecived();
             ping.resetPrint();
             txtBoxPrint.Clear();
 
-           
+
             check = true;
             bool repeat = checkBox1.Checked;
 
@@ -124,18 +154,17 @@ namespace Internet_Tools
             ping.setTimeout(Convert.ToInt32(numericUpDown1.Value));
             check = true;
             ping.setCheck(check);
+        }
 
-
+        private void startPing() {
             if (HasConnection())
             {
 
                 if (txtBoxIP.Text != "")
                 {
 
-
                     if (checkBox1.Checked)
                     {
-
 
                         do
                         {
@@ -150,6 +179,7 @@ namespace Internet_Tools
                     {
 
                         ping.startPing();
+
                     }
                 }
                 else txtBoxPrint.Text = "Please enter IP/Domain address!";
@@ -157,80 +187,7 @@ namespace Internet_Tools
             else txtBoxPrint.Text = "No internet connection.";
         }
 
-        private void roundButton2_Click(object sender, EventArgs e)
-        {
-            check = false;
-            ping.setCheck(check);
-        }
 
-        private void txtBoxIP_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-
-            
-
-        }
-
-        private void clearTextToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            txtBoxPrint.Text = "";
-        }
-
-        private void txtBoxIP_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                e.Handled = true;
-                ping.resetPacketsLost();
-                ping.resetPacketRecived();
-                ping.resetPrint();
-                txtBoxPrint.Clear();
-
-
-                check = true;
-                bool repeat = checkBox1.Checked;
-
-
-                ping.setTimes(Convert.ToInt32(numericUpDownPING.Value));
-                ping.setTtl(Convert.ToInt32(numericUpDownTTL.Value));
-                ping.setRepeat(repeat);
-                ping.setTxtBoxIP(txtBoxIP);
-                ping.setTxtBoxPrint(txtBoxPrint);
-                ping.setTimeout(Convert.ToInt32(numericUpDown1.Value));
-                check = true;
-                ping.setCheck(check);
-
-
-                if (HasConnection())
-                {
-
-                    if (txtBoxIP.Text != "")
-                    {
-
-                        if (checkBox1.Checked)
-                        {
-
-                            do
-                            {
-
-                                ping.startPingLoop();
-
-
-                            } while (check);
-                        }
-
-                        else
-                        {
-
-                            ping.startPing();
-
-                        }
-                    }
-                    else txtBoxPrint.Text = "Please enter IP/Domain address!";
-                }
-                else txtBoxPrint.Text = "No internet connection.";
-            }
-        }
 
        
 
